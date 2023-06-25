@@ -1,0 +1,70 @@
+set search_path to locadora;
+
+SELECT	p.nome, 
+		f.titulo, 
+		f.duracao, 
+		f.ano_lancamento, 
+		z.nome, 
+		g.genero, 
+		c.tarja_classificacao, 
+		c.valor, 
+		c.horas_expiracao
+
+FROM	filmes f 
+		inner join atores_filmes a 
+			ON(f.id_filme = a.id_filme)
+		inner join personagens p 
+			ON (a.id_ator = p.id_ator)
+		inner join franquias z 
+			ON (f.id_franquia = z.id_franquia)
+		INNER JOIN generos g
+			ON (f.id_genero = g.id_genero)
+		INNER JOIN classificacao c
+			ON (f.id_classificacao = c.id_classificacao)
+
+WHERE 	p.nome ilike 'Let%'
+  AND	f.duracao >= '126'
+
+ORDER BY ano_lancamento desc 
+
+
+
+SELECT 	c.nome,
+		c.sobrenome,
+		c.cpf,
+		
+		x.num_cartao,
+		x.cod_seguranca,
+
+		z.tarja_classificacao,
+		z.valor,
+		z.horas_expiracao,
+		
+		a.data_aluguel,
+		a.data_expiracao,
+		
+		f.titulo,
+		f.ano_lancamento,
+		f.duracao,
+		
+		g.genero,
+		
+		y.nome
+		
+FROM 	clientes c
+		INNER JOIN cartao_credito x
+			ON (c.id_cliente = x.id_cliente)
+		INNER JOIN aluguel a
+			ON (c.id_cliente = a.id_cliente)
+		INNER JOIN filmes f
+			ON (a.id_filme = f.id_filme)
+		INNER JOIN generos g
+			ON (f.id_genero = g.id_genero)
+		INNER JOIN franquias y
+			ON (f.id_franquia = y.id_franquia)
+		INNER JOIN classificacao z
+			ON (f.id_classificacao = z.id_classificacao)
+			
+WHERE 	c.id_cliente = '1'
+
+ORDER BY data_aluguel
