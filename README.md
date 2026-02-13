@@ -6,11 +6,9 @@ O projeto visa simular o backend de uma locadora, gerenciando o fluxo de invent�
 
 🛠️ Tecnologias Utilizadas
 
-SGBD: MySQL / PostgreSQL (ou o que você utilizou especificamente).
+SGBD: PostgreSQL.
 
 Linguagem: SQL (DDL e DML).
-
-Ferramenta de Modelagem: MySQL Workbench / draw.io (se aplicável).
 
 🗂️ Estrutura do Banco de Dados
 
@@ -30,6 +28,6 @@ Scripts de Criação: Estrutura completa de tabelas com chaves primárias (PK) e
 
 Consultas Complexas: Exemplos de JOINs para relatórios de filmes mais alugados e histórico de clientes.
 
-Triggers/Procedures: Automação de cálculos de multas ou atualização de status de disponibilidade (se houver no código).
+Triggers/Procedures: Automação de cálculos de multas ou atualização de status de disponibilidade.
 
 Constraints: Garantia de regras de negócio, como não permitir aluguel para clientes com pendências.
